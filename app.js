@@ -48,12 +48,89 @@ app.get("/", function (req, res) {
     res.render("welcome");
 });
 
+// Signup
+
 app.get("/signup", function (req, res) {
     res.render("signup");
 });
 
+app.post("/signup", function (req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    var r = req.body.r;
+
+    if (password !== r) {
+        res.redirect(302, "/signup");
+    }
+
+    else {
+        User.find({
+            username: username,
+            password: password
+        }, function (err, user) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log(user);
+                if (user.length === 0) {
+                    User.create({
+                        username: username,
+                        password: password
+                    }, function (err, user) {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log("User creation done");
+                            console.log(user);
+                            console.log(session);
+
+                            var url = "/landing/" + user._id;
+                            console.log(url);
+                            res.redirect(302, url);
+                        }
+                    });
+                }
+                else {
+                    console.log("The user is registered!");
+                    res.redirect(302, "/login");
+                }
+            }
+        });
+    }
+});
+
+// Login
+
 app.get("/login", function (req, res) {
     res.render("login");
+});
+
+app.post("/login", function (req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    User.find({
+        username: username,
+        password: password
+    }, function (err, user) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log(user);
+            console.log(session);
+            if (user.length === 0) {
+                console.log("Credentials are not right");
+                res.redirect(302, "/login");
+            }
+            else {
+                var url = "/landing/" + user[0]._id;
+                console.log(url);
+                res.redirect(302, url);
+            }
+        }
+    })
 });
 
 // ===========================================================
