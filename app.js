@@ -28,7 +28,8 @@ var recepieSchema = new mongoose.Schema({
     name: { type: String, default: "New Recepie" },
     cook: { type: String },
     description: { type: String },
-    steps: { type: String }
+    steps: { type: String },
+    image: { type: String }
 });
 
 var ingredientSchema = new mongoose.Schema({
@@ -39,6 +40,13 @@ var ingredientSchema = new mongoose.Schema({
 var Cook = mongoose.model("Cook", cookSchema);
 var Recepie = mongoose.model("Recepie", recepieSchema);
 var Ingredient = mongoose.model("Ingredient", ingredientSchema);
+
+// Routes
+// ===========================================================
+
+app.get("/", function (req, res) {
+    res.render("welcome");
+});
 
 // ===========================================================
 

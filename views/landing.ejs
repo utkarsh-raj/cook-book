@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Opinion Poll</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <style type="text/css">
+            #footnote {
+                text-align: center;
+                margin-top: 10%;
+                margin-bottom: 3%;
+            }
+
+            #back {
+                float: right;
+            }
+        </style>
+    </head>
+
+    <body>
+
+
+        <div class="container">
+            <div class="jumbotron">
+                <h1 id="main"><i class="fas fa-poll"></i> Hi, <%= user.username %></h1>
+
+                <a href="/" id="back" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            
+                <p>
+                    Find the hottest questions and the world's opinions!
+                </p>
+
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-5">
+                        <h3>Want the world to see your point?</h3>
+                        <% var url_index = "/index/" + user._id%>
+                        <% var url_new = "/new/" + user._id%>
+                        <% var url_my_questions = "/my_questions/" + user._id%>
+                        <a href="<%= url_index%>" class="btn btn-primary"><i class="fas fa-question-circle"></i> View Questions</a>
+                        <a href="<%= url_my_questions%>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> My Questions</a>
+                    </div>
+                    <div class="col-sm-5">
+                        <h3>Have a question for all?</h3>
+                        <a href="<%= url_new %>" class="btn btn-primary"><i class="fas fa-plus-square"></i> Add Question</a>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="footnote">
+            <hr>
+            Follow the code on <i class="fab fa-github"></i> <a href="http://www.github.com/utkarsh-raj">GitHub</a>
+        </div>
+
+        
+    </body>
+</html>

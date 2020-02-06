@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Opinion Poll</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <style type="text/css">
+        #footnote {
+            text-align: center;
+            margin-top: 10%;
+            margin-bottom: 3%;
+        }
+
+        #back {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 id="main">Let's get started!</h1>
+
+            <a href="/login" id="back" class="btn btn-success">Been here before? Login now!</a>
+
+            <p>
+                Let the world know your opinion
+            </p>
+
+        </div>
+
+        <div class="container">
+            <form action="/signup" method="POST" class="form-horizontal">
+                <div class="form-group">
+                    <label for="username" class="col-sm-2 control-label">Username</label>
+                    <div class="col-sm-10">
+                        <input type="textarea" class="form-control" id="username" name="username"
+                            placeholder="Choose a username" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="A strong password here" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="r" class="col-sm-2 control-label">Retype Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="r" name="r"
+                            placeholder="Retype Password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-lg btn-success">Get me in!</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="footnote">
+        <hr>
+        Follow the code on <i class="fab fa-github"></i> <a href="http://www.github.com/utkarsh-raj">GitHub</a>
+    </div>
+
+
+</body>
+
+</html>
