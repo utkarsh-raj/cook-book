@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Opinion Poll</title>
+        <title>Cook Book</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
@@ -24,12 +24,12 @@
 
         <div class="container">
             <div class="jumbotron">
-                <h1 id="main"><i class="fas fa-poll"></i> Hi, <%= user.username %></h1>
+                <h1 id="main"><i class="fas fa-cookie-bite"></i> Hi, <%= user.username %></h1>
 
                 <a href="/" id="back" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
             
                 <p>
-                    Find the hottest questions and the world's opinions!
+                    What do you want to do today?
                 </p>
 
             </div>
@@ -38,11 +38,11 @@
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-5">
-                        <h3>Want the world to see your point?</h3>
+                        <h3>Want to see the trending recepies?</h3>
                         <% var url_index = "/index/" + user._id%>
                         <% var url_new = "/new/" + user._id%>
                         <% var url_my_questions = "/my_questions/" + user._id%>
-                        <a href="<%= url_index%>" class="btn btn-primary"><i class="fas fa-question-circle"></i> View Questions</a>
+                        <a href="<%= url_index%>" class="btn btn-primary"><i class="fas fa-book"></i> View Recepies</a>
                         <a href="<%= url_my_questions%>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> My Questions</a>
                     </div>
                     <div class="col-sm-5">

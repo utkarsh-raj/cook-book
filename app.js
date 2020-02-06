@@ -133,6 +133,24 @@ app.post("/login", function (req, res) {
     });
 });
 
+// Landing
+
+app.get("/landing/:userId", function (req, res) {
+
+    var userId = req.params.userId;
+    console.log(userId);
+    Cook.find({
+        _id: userId
+    }, function (err, user) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.render("landing", { user: user[0] })
+        }
+    });
+});
+
 // ===========================================================
 
 var port = process.env.PORT || 8090;
