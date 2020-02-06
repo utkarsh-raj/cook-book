@@ -64,7 +64,7 @@ app.post("/signup", function (req, res) {
     }
 
     else {
-        User.find({
+        Cook.find({
             username: username,
             password: password
         }, function (err, user) {
@@ -74,7 +74,7 @@ app.post("/signup", function (req, res) {
             else {
                 console.log(user);
                 if (user.length === 0) {
-                    User.create({
+                    Cook.create({
                         username: username,
                         password: password
                     }, function (err, user) {
@@ -84,7 +84,7 @@ app.post("/signup", function (req, res) {
                         else {
                             console.log("User creation done");
                             console.log(user);
-                            console.log(session);
+                            // console.log(session);
 
                             var url = "/landing/" + user._id;
                             console.log(url);
@@ -110,7 +110,7 @@ app.get("/login", function (req, res) {
 app.post("/login", function (req, res) {
     var username = req.body.username;
     var password = req.body.password;
-    User.find({
+    Cook.find({
         username: username,
         password: password
     }, function (err, user) {
@@ -119,7 +119,7 @@ app.post("/login", function (req, res) {
         }
         else {
             console.log(user);
-            console.log(session);
+            // console.log(session);
             if (user.length === 0) {
                 console.log("Credentials are not right");
                 res.redirect(302, "/login");
@@ -130,7 +130,7 @@ app.post("/login", function (req, res) {
                 res.redirect(302, url);
             }
         }
-    })
+    });
 });
 
 // ===========================================================
