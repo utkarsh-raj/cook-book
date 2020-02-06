@@ -48,6 +48,14 @@ app.get("/", function (req, res) {
     res.render("welcome");
 });
 
+app.get("/signup", function (req, res) {
+    res.render("signup");
+});
+
+app.get("/login", function (req, res) {
+    res.render("login");
+});
+
 // ===========================================================
 
 var port = process.env.PORT || 8090;
