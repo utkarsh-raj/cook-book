@@ -16,6 +16,14 @@
             #back {
                 float: right;
             }
+
+            .form-inline {
+                text-align: center;
+            }
+
+            #search_term {
+                width: 310px;
+            }
         </style>
     </head>
 
@@ -32,6 +40,20 @@
                     What do you want to do today?
                 </p>
 
+                <form class="form-inline" action="<%= "/search/" + user._id %>" method="POST">
+                    <div class="form-group">
+                        <label class="sr-only" for="search_term">Search</label>
+                        <input type="text" class="form-control" id="search_term" name="search_term" placeholder="Search for your favourite recepies" required>
+                    </div>
+                    <div class="checkbox">
+                        <input type="radio" name="search_type" value="recepie" required> Recepie Name
+                        <input type="radio" name="search_type" value="ingredient" required> Ingredient Search
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
+
+                
+
             </div>
 
             <div class="container">
@@ -43,13 +65,21 @@
                         <% var url_new = "/new/" + user._id%>
                         <% var url_my_questions = "/my_questions/" + user._id%>
                         <a href="<%= url_index%>" class="btn btn-primary"><i class="fas fa-book"></i> View Recepies</a>
-                        <a href="<%= url_my_questions%>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> My Questions</a>
                     </div>
                     <div class="col-sm-5">
-                        <h3>Have a question for all?</h3>
-                        <a href="<%= url_new %>" class="btn btn-primary"><i class="fas fa-plus-square"></i> Add Question</a>
+                        <h3>Have an exciting new recepie?</h3>
+                        <a href="<%= url_new %>" class="btn btn-primary"><i class="fas fa-plus-square"></i> Add Recepie</a>
                     </div>
                     <div class="col-sm-2"></div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-8">
+                        <div class="container">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

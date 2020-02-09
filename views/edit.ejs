@@ -25,43 +25,43 @@
 
     <div class="container">
         <div class="jumbotron">
-			<h1 id="main">Show the world, <%= user.name %></h1>
+			<h1 id="main">Show the world <%= user.name %></h1>
 			
 			<% var url_go = "/index/" + user._id; %>
 			<a href="/" id="back" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
 			<a href=<%= url_go %> id="back" class="btn btn-primary"><i class="fas fa-backward"></i> Go back</a>
 
             <p>
-				Time to put on the chef's hat!
+				Let us update the best!
 			</p>
 
         </div>
 
         <div class="container">
-			<%var url = "/new/" + user._id; %>
+			<%var url = "/edit/" + user._id + "/" + recepie._id; %>
             <form action="<%= url %>" method="POST" class="form-horizontal">
 	            <div class="form-group">
 	                <label for="question" class="col-sm-2 control-label">Name</label>
 	                <div class="col-sm-10">
-	                  <input type="textarea" class="form-control" id="question" name="name" placeholder="The name of your creation" required>
+	                  <input type="textarea" class="form-control" id="question" name="name" placeholder="The name of your creation" value="<%= recepie.name %>" required>
 	                </div>
 	            </div>
 	            <div class="form-group">
 	                <label for="option1" class="col-sm-2 control-label">Description</label>
 	                <div class="col-sm-10">
-	                  <input type="text" class="form-control" id="option1" name="description" placeholder="Tell us a bit about the delicacy" required>
+	                  <input type="text" class="form-control" id="option1" name="description" placeholder="Tell us a bit about the delicacy" value="<%= recepie.description %>" required>
 	                </div>
 	            </div>
 	            <div class="form-group">
 	                <label for="option2" class="col-sm-2 control-label">Steps</label>
 	                <div class="col-sm-10">
-	                  <textarea type="text" rows="3" class="form-control" id="option2" name="steps" placeholder="The steps?" required></textarea>
+	                  <textarea type="text" rows="3" class="form-control" id="option2" name="steps" placeholder="The steps?" required><%= recepie.steps %></textarea>
 	                </div>
 	            </div>
 	            <div class="form-group">
 	                <label for="option3" class="col-sm-2 control-label">Image</label>
 	                <div class="col-sm-10">
-	                  <input type="text" class="form-control" id="option3" name="image" placeholder="Link to an image" required>
+	                  <input type="text" class="form-control" id="option3" name="image" placeholder="Link to an image" value="<%= recepie.image %>" required>
 	                </div>
 				</div>
 				<br>
@@ -71,7 +71,7 @@
 						<div class="form-group">
 							<label for="option4" class="col-sm-2 control-label">Ingredient 1</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="option4" name="ingredient1" placeholder="Number one..."
+								<input type="text" class="form-control" id="option4" name="ingredient1" placeholder="Number one..." value="<%= recepie.ingredients[0] %>"
 									required>
 							</div>
 						</div>
@@ -80,7 +80,7 @@
 						<div class="form-group">
 							<label for="option4" class="col-sm-2 control-label">Ingredient 2</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="option4" name="ingredient2" placeholder="Number two..."
+								<input type="text" class="form-control" id="option4" name="ingredient2" placeholder="Number two..." value="<%= recepie.ingredients[1] %>"
 									required>
 							</div>
 						</div>
@@ -91,7 +91,7 @@
 						<div class="form-group">
 							<label for="option4" class="col-sm-2 control-label">Ingredient 3</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="option4" name="ingredient3" placeholder="Number three..."
+								<input type="text" class="form-control" id="option4" name="ingredient3" placeholder="Number three..." value="<%= recepie.ingredients[2] %>"
 									required>
 							</div>
 						</div>
@@ -100,7 +100,7 @@
 						<div class="form-group">
 							<label for="option4" class="col-sm-2 control-label">Ingredient 4</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="option4" name="ingredient4" placeholder="Number four..."
+								<input type="text" class="form-control" id="option4" name="ingredient4" placeholder="Number four..." value="<%= recepie.ingredients[3] %>"
 									required>
 							</div>
 						</div>
