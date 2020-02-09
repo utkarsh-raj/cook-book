@@ -27,6 +27,7 @@ var cookSchema = new mongoose.Schema({
 var recepieSchema = new mongoose.Schema({
     name: { type: String, default: "New Recepie" },
     cook: { type: String },
+    cookId: { type: String },
     description: { type: String },
     steps: { type: String },
     image: { type: String },
@@ -246,6 +247,7 @@ app.post("/new/:userId", function (req, res) {
             Recepie.create({
                 name: name,
                 cook: user[0].username,
+                cookId: user[0]._id,
                 description: description,
                 steps: steps,
                 image: image,

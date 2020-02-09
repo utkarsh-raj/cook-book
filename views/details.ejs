@@ -35,7 +35,9 @@
             <% var url = "/index/" + userId; %>
             <a href="/" id="back" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
             <a href=<%= url %> id="back" class="btn btn-primary"><i class="fas fa-backward"></i> Go back</a>
-            <a href=<%= "/edit/" + userId + "/" + recepie._id %> id="back" class="btn btn-success"><i class="fas fa-backward"></i> Edit recepie</a>
+            <% if (userId === recepie.cookId) { %>
+                <a href=<%= "/edit/" + userId + "/" + recepie._id %> id="back" class="btn btn-success"><i class="fas fa-backward"></i> Edit recepie</a>
+            <% } %>
         </div>
 
         <div class="container">
