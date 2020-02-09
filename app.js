@@ -352,7 +352,7 @@ app.post("/search/:userId", function(req, res) {
                     for (i = 0; i < recepies.length; i++) {
                         temp = recepies[i].name.split(" ");
                         for (j = 0; j < temp.length; j++) {
-                            if (searchTerm === temp[j]){
+                            if (searchTerm === temp[j].toLowerCase()){
                                 recepiesList.push(recepies[i]);
                                 break;
                             }
@@ -376,7 +376,7 @@ app.post("/search/:userId", function(req, res) {
                 for (i = 0; i < recepies.length; i++) {
                     for (j = 0; j < 4; j++) {
                         console.log(searchTerm, recepies[i].ingredients[j]);
-                        if (searchTerm === recepies[i].ingredients[j]) {
+                        if (searchTerm === recepies[i].ingredients[j].toLowerCase()) {
 
                             recepiesList.push(recepies[i]);
                             break;
